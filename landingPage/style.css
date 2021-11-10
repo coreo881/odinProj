@@ -1,0 +1,183 @@
+:root {
+    --darkBg: #1f2937;
+    --cta: #3882f6;
+    --secondaryText: #e5e7eb;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 0;
+}
+
+.btn {
+    font-size: 1rem;
+    border-radius: 5px;
+    color: white;
+    padding: 2px 15px;
+    font-weight: 600;
+}
+
+.btn1 {
+    background-color: var(--cta);
+}
+
+.btn2 {
+    background-color: transparent;
+    border: 1px solid white;
+    align-self: center;
+}
+
+header {
+    background-color: var(--darkBg);
+}
+
+header>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    width: 75px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+li a {
+    color: var(--secondaryText);
+    text-decoration: none;
+}
+
+.intro {
+    background-color: var(--darkBg);
+}
+
+.mediaBlock {
+    display: flex;
+    gap: 20px;
+}
+
+.prompt h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+}
+
+.prompt p {
+    font-size: 1rem;
+    color: var(--secondaryText);
+}
+
+.image img {
+    max-width: 400px;
+}
+
+
+/* landmarks */
+
+.landmarks h2 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--darkBg);
+    text-align: center;
+}
+
+.landmarks .cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.landmarks .card {
+    max-width: 400px;
+}
+
+.landmarks .card img {
+    max-width: 150px;
+    border-radius: 15px;
+}
+
+.landmarks .card p {
+    font-size: 18px;
+    color: black;
+    text-align: center;
+}
+
+
+/* end landmarks */
+
+
+/* the quote */
+
+.quote {
+    background-color: var(--secondaryText);
+}
+
+.quote blockquote {
+    font-size: 36px;
+    font-weight: 100;
+    color: var(--darkBg);
+    font-style: italic;
+}
+
+.quote cite {
+    display: block;
+    text-align: right;
+}
+
+
+/* end quote */
+
+
+/* call to action */
+
+.callToAction .cta {
+    background-color: var(--cta);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.callToAction .cta h3 {
+    font-size: 24px;
+    color: #f9faf8;
+}
+
+.callToAction .cta p {
+    color: #f9faf8;
+}
+
+
+/* end call to action */
+
+
+/* footer */
+
+footer {
+    text-align: center;
+    background-color: var(--darkBg);
+    padding: 30px 0;
+    color: white;
+}
+
+
+/* end footer */
