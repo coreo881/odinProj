@@ -78,4 +78,6 @@ function game() {
   }
 }
 
-game();
+setTimeout(() => {
+  game();
+}, 5000);
