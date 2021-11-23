@@ -1,0 +1,18 @@
+==Understand==
+You're making a rock paper scissors game that pits the user against the cold logic of the Computer. The program will prompt the user to type in a selection of rock paper scissors, and the game will display the outcome in the console log. This game will be run 5 rounds.
+
+
+
+==Plan==
+• Create a function for the computer that randomizes the selection of rock paper scissors
+    - create a function that returns a random number between a min and a max
+• Create a function that prompts the player to type in their selection. The selection must be rock paper or scissors, case insensitive. Make sure there is error checking for invalid inputs.
+• Create a function that plays a round; it takes in two parameters and compares the two. It returns a string based on the outcome.
+• Create a function that plays 5 rounds, keeps score, and reports a winner
+
+
+
+==Divide==
+I feel like there are ways to optimize this code.  I have it working, but I'm copy and pasting things a lot.  Maybe I can base the comparisons on numbers and that's reduce the tech debt.
+
+Also, there is currently no checking for invalid values. Going to create a separate function for that.
