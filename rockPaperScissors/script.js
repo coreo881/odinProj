@@ -66,6 +66,7 @@ function startGame(amountOfRounds) {
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
       clickHandler(button, amountOfRounds);
+      console.log(playerScore, computerScore);
     });
   });
 }
@@ -82,6 +83,10 @@ let computerScore = 0;
 let tiesAmt = 0;
 
 let startButton = document.querySelector(".btn.start");
-startButton.addEventListener("click", function () {
-  startGame(5);
-});
+startButton.addEventListener(
+  "click",
+  function () {
+    startGame(5);
+  },
+  {once:true}
+);
