@@ -16,3 +16,16 @@ You're making a rock paper scissors game that pits the user against the cold log
 I feel like there are ways to optimize this code.  I have it working, but I'm copy and pasting things a lot.  Maybe I can base the comparisons on numbers and that's reduce the tech debt.
 
 Also, there is currently no checking for invalid values. Going to create a separate function for that.
+
+
+======
+new new
+=======
+==Understand==
+Now I need to make this thing but with buttons. The game won't start until the user clicks on the start game button so I need an event listener for that which is attached to the start game function.  The start game function will give the the play buttons their event listeners.  Maybe the computer choice is made on start game, and on each subsequent player choosing of RPS.
+
+
+==Plan==
+- Grab and attach an event listener to the start game button
+- Add logic to start game button that will make the game buttons appear, and attach event listeners to them. Also make the computer make a selection 
+- 

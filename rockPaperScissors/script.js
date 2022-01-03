@@ -3,81 +3,85 @@ function getRndInteger(min, max) {
 }
 
 function computerPlay() {
-  let choice = getRndInteger(1, 3);
-
-  if (choice == 1) {
-    return "Rock".toLowerCase();
-  } else if (choice == 2) {
-    return "Paper".toLowerCase();
-  } else {
-    return "Scissors".toLowerCase();
-  }
-}
-
-function playerPlay() {
-  let choice = prompt("Rock, paper, scissors?").toLowerCase();
-  while (
-    !choice ||
-    (choice !== "rock" && choice !== "paper" && choice !== "scissors")
-  ) {
-    choice = prompt(
-      "Invalid input! Please choose Rock, paper, or scissors"
-    ).toLowerCase();
-  }
+  let selections = ["rock", "paper", "scissors"];
+  let choice = selections[getRndInteger(0, 2)];
   return choice;
 }
 
-function playRound(compChoice, playerChoice) {
-  compChoice = computerPlay();
-  playerChoice = playerPlay();
+function playRound(playerChoice) {
+  let compChoice = computerPlay();
 
   if (
     (compChoice == "rock" && playerChoice == "scissors") ||
     (compChoice == "paper" && playerChoice == "rock") ||
     (compChoice == "scissors" && playerChoice == "paper")
   ) {
-    return [`Computer chose ${compChoice}. Computer wins this round!`, 2];
+    updates.textContent = `Computer chose ${compChoice}. Computer wins this round!`;
+    computerScore++;
+    compScore.textContent = computerScore;
+    roundsPlayed++;
   } else if (
     (compChoice == "scissors" && playerChoice == "rock") ||
     (compChoice == "rock" && playerChoice == "paper") ||
     (compChoice == "paper" && playerChoice == "scissors")
   ) {
-    return [`Computer chose ${compChoice}. You win this round!`, 1];
+    updates.textContent = `Computer chose ${compChoice}. You win this round!`;
+    playerScore++;
+    myScore.textContent = playerScore;
+    roundsPlayed++;
   } else {
-    console.log("It's a tie! Play again");
-    return playRound();
+    updates.textContent = "It's a tie! Play again";
+    tiesAmt++;
+    ties.textContent = tiesAmt;
   }
 }
 
-function game() {
-  //declare the score keeping variables
-  let playerScore = 0;
-  let computerScore = 0;
-
-  //play 5 rounds
-  for (let index = 0; index < 5; index++) {
-    let outcome = playRound();
-    // display the result of that round
-    console.log(`Game ${index + 1}: ${outcome[0]}`);
-
-    if (outcome[1] == 1) {
-      playerScore++;
-    } else if (outcome[1] == 2) {
-      computerScore++;
-    }
+function declareWinner(pScore, cScore) {
+  if (pScore > cScore) {
+    updates.innerHTML = `Here's the final score.<br>You: ${pScore}<br>Computer: ${cScore}<br>You won the game!`;
+  } else {
+    updates.innerHTML = `Here's the final score.<br>You: ${pScore}<br>Computer: ${cScore}<br>The computer won the game!`;
   }
 
-  if (playerScore > computerScore) {
-    console.log(
-      `Here's the final score.\nYou: ${playerScore}\nComputer: ${computerScore}\nYou won the game!`
-    );
-  } else {
-    console.log(
-      `Here's the final score.\nYou: ${playerScore}\nComputer: ${computerScore}\nThe computer won the game!`
-    );
+  //this bit of trickery is to remove the event listeners once the game is complete
+  buttons.forEach((button) => {
+    // button.removeEventListener("click", clickHandler);
+    var new_element = button.cloneNode(true);
+    button.parentNode.replaceChild(new_element, button);
+  });
+}
+
+function clickHandler(button, amountOfRounds) {
+  let selection = button.getAttribute("data-selection");
+  playRound(selection);
+  if (playerScore >= amountOfRounds || computerScore >= amountOfRounds) {
+    declareWinner(playerScore, computerScore);
   }
 }
 
-setTimeout(() => {
-  game();
-}, 5000);
+function startGame(amountOfRounds) {
+  const gameButtons = document.querySelector(".gameButtons");
+  gameButtons.classList.add("showGameButtons");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      clickHandler(button, amountOfRounds);
+    });
+  });
+}
+
+//the important game variables
+const buttons = document.querySelectorAll(".gameButtons button");
+const myScore = document.querySelector("#myScore");
+const compScore = document.querySelector("#compScore");
+const ties = document.querySelector("#ties");
+const updates = document.querySelector(".updates p");
+let roundsPlayed = 0;
+let playerScore = 0;
+let computerScore = 0;
+let tiesAmt = 0;
+
+let startButton = document.querySelector(".btn.start");
+startButton.addEventListener("click", function () {
+  startGame(5);
+});

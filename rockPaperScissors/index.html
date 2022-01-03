@@ -5,12 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock, Paper, Scissors</title>
 </head>
 
 <body>
-    <h1 style="max-width: 50vh;">This is a game played in the console. Right click your browser window, click 'Inspect', click on the console tab and see the game progress. The game will start in 5 seconds. If you waited too long and missed your shot to open the console, just hit
-        reload and try again.</h1>
+    <section class="gameName">
+        <h1>Rock, Paper, Scissors</h1>
+    </section>
+    <section class="startbutton">
+        <button class="btn start">Start Game</button>
+    </section>
+    <section class="gameButtons">
+        <button data-selection="rock" class="btn rock"><img src="assets/rps-rock.jpg" alt="rock"></button>
+        <button data-selection="paper" class="btn paper"><img src="assets/rps-paper.jpg" alt="paper"></button>
+        <button data-selection="scissors" class="btn scissors"><img src="assets/rps-scissors.jpg" alt="scissors"></button>
+    </section>
+    <section class="log">
+        <h2>Your score: <span id="myScore">0</span></h2>
+        <h2>Computer score: <span id="compScore">0</span></h2>
+        <h2>Ties: <span id="ties">0</span></h2>
+        <div class="updates"><p></p></div>
+    </section>
     <script src="script.js"></script>
 </body>
 

@@ -1,0 +1,44 @@
+body {
+    background-color: turquoise;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameName,
+.startbutton {
+    text-align: center;
+}
+
+.btn.start {
+    font-size: 5rem;
+    padding: 1rem;
+}
+
+.gameButtons {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    column-gap: 15px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.showGameButtons {
+    opacity: 1;
+}
+
+.btn img {
+    width: 100%;
+}
+
+.updates {
+    /* width: 50%; */
+    margin: 0 auto;
+    font-size: 2rem;
+}
+
+section.log {
+    margin: 0 auto;
+    text-align: center;
+}
