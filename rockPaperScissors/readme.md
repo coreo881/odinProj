@@ -7,6 +7,7 @@ Lessons learned:
   - You can't remove an anonymous event listener without doing some serious code gymnastics.
   - The difference between using "handler" in a callback function vs using "handler()". The latter calls the function immediately.
   - Cloning a node and replacing it to remove all event listeners
+- How to create, checkout, and merge git branches
 
 Things to add when I revisit this:
 
