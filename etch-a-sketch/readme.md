@@ -10,4 +10,5 @@ Lessons learned:
 Things to add when I revisit this:
 
 - Add a shake to clear on the mobile version
-- 
+- Make it more mobile friendly/play around with touch events
+- Change hover to only highlight when the mouse button is clicked down. 
