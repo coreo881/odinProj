@@ -1,0 +1,10 @@
+In order to maintain the pixel size of the grid container (1000x1000), while increasing or decreasing the number of cells, the cells need to expand and contract.
+
+I'm thinking I can create a regular 16x16 grid first, and plug all that in hard code. For the JS interaction after the button press: 
+- I can fade out the grid container 
+- destroy the nodes 
+- create new nodes 
+- add those to the grid container
+- change the grid template columns (and rows?)
+- then fade it all in?
+

@@ -1,0 +1,49 @@
+:root {
+    --containerSize: calc(500px + 10vw);
+    --gridSize: 4;
+    --cellSize: calc(var(--containerSize) / var(--gridSize));
+}
+
+body,
+html {
+    box-sizing: border-box;
+    /* font-size: calc(10px + 1vw); */
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main{
+    display: grid;
+    place-self: center;
+}
+
+.btn{
+    padding: 20px;
+    background-color: skyblue;
+    font-size: 2rem;
+    width: 50%;
+    margin: 0 auto 20px auto;
+}
+
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(var(--gridSize), var(--cellSize));
+    place-self: center;
+    width: var(--containerSize);
+    height: var(--containerSize);
+}
+
+.gridItem {
+    width: var(--cellSize);
+    border: 1px solid black;
+    background-color: cadetblue;
+}
+
+.gridItem.highlighted {
+    background-color: gold;
+}
