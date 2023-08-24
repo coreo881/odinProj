@@ -1,0 +1,95 @@
+This is nothing. I'm starting over. I've caught myself in a bullshit loop and I'm a little frustrated and demoralized. But I need to start over.  This part is painful but maybe I'm not progressing and maybe I need to make a hard turn.
+
+So I'm just going to stream of consciousness this and see where it takes me. From what I've read and have seen in the students example, I'll want to store all of my inputs in variables FIRST. I need a solid method of doing that.  Also I like the idea of reducing clutter by just grabbing all the buttons and then giving them event listeners all at once.
+
+- Create an initialize buttons function that starts when this thing starts. It'll give the buttons their functionality.
+
+- Create variables that'll store operators and operands.
+
+
+Okay, so I know I need event listeners lol.  But what happens? On click, run a function that does some stuff
+
+Now I need a display variable and I want it to default to zero.
+
+Need functions for my operators
+
+
+Okay so here's the hard part.
+
+When I click on a button I need to store that value. That stored value should default to zero then.
+
+
+Click > display
+-----
+8-21-23
+-----
+
+I'm back again and thinking about this problem in a few ways.
+
+1. After clicking on a button, do I want to store the number, then display it? I.e. display is always attached to store.
+
+2. After clicking a button, do I want to display it, then store it? I.e. store x`is always attached to display?
+
+3. After clicking a button, do I want to keep track very separately?
+
+I think choice three. Because I've been attempting to keep them attached in some way and it hasn't been working out.
+
+
+So I'm thinking that on each button press I commit that number to the first operand and then run a display function that updates the display
+
+---
+8/23/23
+---
+
+FOOTNOTE 1. I'm not gonna lie, this one feels a little hacky. I'm forcing the number to become a string, concatenating that string with whatever button was pressed then turning that string back into an integer.Feels weird but it's working...
+
+FOOTNOTE 2. There are some checks I need to do before I commit to the display variable. Namely, when the display variable is at zero, and a number other than zero is pressed, the display variable should replace zero with that number rather than concatenate. Also, if zero is pressed when the display variable is at zero, no change should occur.
+
+FOOTNOTE 3. There are a couple of not-so-edge cases that I need to deal with now.  The first is after the user equates an expression with the equal button and then immediately wants to use that number as the operand of another expression by hitting an operator button.  Right now, because I'm setting operands back to zero without any fallbacks, the first operand will alwyas be zero. The second is when a user tries to press another operator after dialing in their second operand as a shorthand for "equate this expression and then set up the next expression's first operand being the result and the operator being the selected operator." Right now I don't really have a solve for that.
+
+
+
+Flow
+- Number press(es)
+ - commit to operand 1 variable
+ - commit to userinput display variable
+ - update userinput display
+- Operator press
+ - commit to operator variable
+  - if operator variable is NOT null, do nothing
+ - update userinput display variable with operator
+ - update userinput display
+ - Another operator press (no equal btn)
+  - commit equated value to operand 1
+  - commit to display variable
+  - set operator variable to pressed operator
+  - update display
+ - Another operator press (after equal btn)
+  - commit equated value to operand 1
+  - commit to display variable
+  - set operator variable to pressed operator
+  - update display
+- Number press 
+ - commit to operand 2 variable
+ - commit to userinput display variable
+- Equal button press
+ - equate value
+ - set first operand to 0
+ - set second operand to 0
+ - commit equated value to operand 1
+ - commit equated value to results display variable
+ - set operator variable to null
+ - clear userinput display variable
+ - update results display
+- Clear button press
+ - set operator to null
+ - set first operand to 0
+ - set second operand to 0
+ - set userinput display variable to ""
+ - set userinput display to ""
+ - set results to null
+ - set resultsDisplay to "0"
+ - update userinput display
+ - update resultsDisplay
+
+

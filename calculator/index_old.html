@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cal-cu-later!</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main id="calculator">
+        <section class="display">
+            <output class="user-input" type="text" id="user-input"></output>
+            <output class="result" type="text" id="result">0</output>
+        </section>
+        <section class="numPad">
+            <div class="toggles">
+                <span class="toggle-switch lightDark">
+                    <span class="toggle-knob"></span>
+                </span>
+                <span class="toggle-switch leftRight">
+                    <span class="toggle-knob"></span>
+                </span>
+            </div>
+            <div class="buttons">
+                <button data-clear="all" class="allClearBtn">AC</button>
+                <button data-clear="backspace" class="backSpaceBtn"><img src="assets/backspace-svgrepo-com.svg" alt=""></button>
+                <button class="functionBtn">%</button>
+                <button data-op="÷" class="operatorBtn">÷</button>
+                <button data-num="7">7</button>
+                <button data-num="8">8</button>
+                <button data-num="9">9</button>
+                <button data-op="×" class="operatorBtn">×</button>
+                <button data-num="4">4</button>
+                <button data-num="5">5</button>
+                <button data-num="6">6</button>
+                <button data-op="-" class="operatorBtn">-</button>
+                <button data-num="1">1</button>
+                <button data-num="2">2</button>
+                <button data-num="3">3</button>
+                <button data-op="+" class="operatorBtn">+</button>
+                <button data-num="0">0</button>
+                <button>+/-</button>
+                <button>.</button>
+                <button class="equalBtn">=</button>
+            </div>
+        </section>
+        <footer>Created by <a href="https://www.coreycreativ.com " target="_blank ">CoreyCreativ</a> | <a href="# ">Source</a></footer>
+    </main>
+</body>
+
+</html>
