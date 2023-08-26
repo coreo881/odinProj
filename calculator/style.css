@@ -140,16 +140,16 @@ body {
 }
 
 button.clear,
-button.backSpaceBtn {
+button.backSpace {
     background-color: rgb(255, 93, 93);
 }
 
-button.backSpaceBtn img {
+button.backSpace img {
     filter: invert(1);
     vertical-align: sub;
 }
 
-button.functionBtn {
+button.percent {
     background-color: #3999ff
 }
 

@@ -1,3 +1,9 @@
+// OPERATIONS
+const ADD = (num1, num2) => num1 + num2;
+const SUBTRACT = (num1, num2) => num1 - num2;
+const MULTIPLY = (num1, num2) => num1 * num2;
+const DIVIDE = (num1, num2) => num1 / num2;
+
 //null because nothing has been pressed yet
 let operator = null;
 let firstOperand = 0;
@@ -5,6 +11,7 @@ let secondOperand = 0;
 let userInputDisplay = "0";
 let results = null;
 let resultsDisplay = "0";
+let doesDecimalExist = false;
 
 const buttons = document.querySelectorAll(".buttons button");
 const userInput = document.querySelector("#user-input");
@@ -19,14 +26,56 @@ function initButtons(buttons) {
                 let key = Object.keys(button.dataset);
                 let value = Object.values(button.dataset);
 
+                doesDecimalExist = false;
+
                 console.log(`key: ${key}, value: ${value}`);
 
                 // FOOTNOTE 3
 
-                // commit to operator variable
+                // FOOTNOTE 4
+
+                // check to see if operator was pressed
                 if (operator !== null) {
-                    return;
+                    // YES
+
+                    // commit equated value to results variable
+                    results = operate(firstOperand, secondOperand, operator);
+
+                    // set operand 1 to results value
+                    firstOperand = results;
+
+                    // set operand 2 to zero
+                    secondOperand = 0;
+
+                    // set operator to new operator
+                    operator = value;
+
+                    // update userinput display variable
+                    userInputDisplay = `${firstOperand} `;
+
+                    // update results display variable
+                    resultsDisplay = results.toString();
+
+                    // update userinput display
+                    userInput.textContent = userInputDisplay;
+
+                    // update results display
+                    resultsContainer.textContent = resultsDisplay;
+                } else if (firstOperand === 0 && results !== null) {
+                    // set operand 1 to results value
+                    firstOperand = results;
+
+                    // set operator to new operator
+                    operator = value;
+
+                    // update userinput display variable
+                    userInputDisplay = `${firstOperand} `;
+
+                    // update userinput display
+                    userInput.textContent = userInputDisplay;
                 } else {
+                    // NO
+                    // commit to operator variable
                     operator = value;
                 }
 
@@ -46,40 +95,68 @@ function initButtons(buttons) {
                 if (operator === null) {
                     // commit to operand 1 variable.
                     //FOOTNOTE 1
-                    firstOperand = parseInt(firstOperand + "" + value);
+
+                    //FOOTNOTE 4
+                    if (!doesDecimalExist) {
+                        firstOperand = parseInt(firstOperand + "" + value);
+                    } else {
+                        console.log(firstOperand + "." + value);
+
+                        if (Number.isInteger(firstOperand)) {
+                            firstOperand = parseFloat(
+                                firstOperand + "." + value
+                            );
+                        } else {
+                            firstOperand = parseFloat(
+                                firstOperand + "" + value
+                            );
+                        }
+
+                        console.log(Number.isInteger(firstOperand));
+                    }
                     console.log(`Commiting to firstOperand: ${firstOperand}`);
 
                     // commit to userinput display variable
                     //FOOTNOTE 2
-                    if (userInputDisplay === "0") {
+                    if (userInputDisplay.toString() === "0") {
                         if (value > 0) {
-                            userInputDisplay = "" + value;
+                            userInputDisplay = value.toString();
                         } else {
                             return;
                         }
                     } else {
-                        userInputDisplay += value;
+                        userInputDisplay += value.toString();
+                        console.log(userInputDisplay);
                     }
 
                     // update userinput display
                     userInput.textContent = userInputDisplay;
                 } else if (operator !== null) {
                     // commit to operand 2 variable.
-                    secondOperand = parseInt(secondOperand + "" + value);
+
+                    if (!doesDecimalExist) {
+                        secondOperand = parseInt(secondOperand + "" + value);
+                    } else {
+                        console.log(secondOperand + "." + value);
+
+                        if (Number.isInteger(secondOperand)) {
+                            secondOperand = parseFloat(
+                                secondOperand + "." + value
+                            );
+                        } else {
+                            secondOperand = parseFloat(
+                                secondOperand + "" + value
+                            );
+                        }
+
+                        console.log(Number.isInteger(secondOperand));
+                    }
                     console.log(
                         `Committing to secondOperand: ${secondOperand}`
                     );
 
                     // commit to userinput display variable
-                    if (userInputDisplay === "0") {
-                        if (value > 0) {
-                            userInputDisplay = "" + value;
-                        } else {
-                            return;
-                        }
-                    } else {
-                        userInputDisplay += value;
-                    }
+                    userInputDisplay = `${firstOperand} ${operator} ${secondOperand}`;
 
                     // update userinput display
                     userInput.textContent = userInputDisplay;
@@ -122,33 +199,28 @@ function initButtons(buttons) {
                 results: ${results},
                 resultsDisplay: ${resultsDisplay}`);
             });
+        } else if (button.classList.contains("invert")) {
+            button.addEventListener("click", () => {
+                invert();
+            });
+        } else if (button.classList.contains("decimal")) {
+            button.addEventListener("click", () => {
+                decimal();
+            });
+        } else if (button.classList.contains("percent")) {
+            button.addEventListener("click", () => {
+                percentage();
+            });
         } else if (button.classList.contains("clear")) {
             button.addEventListener("click", () => {
-                operator = null;
-                firstOperand = 0;
-                secondOperand = 0;
-                userInputDisplay = "0";
-                results = null;
-                resultsDisplay = "0";
-                userInput.textContent = "";
-                resultsContainer.textContent = resultsDisplay;
+                clearAllData();
+            });
+        } else if (button.classList.contains("backSpace")) {
+            button.addEventListener("click", () => {
+                backSpace();
             });
         }
     });
-}
-
-// OPERATIONS
-function add(num1, num2) {
-    return num1 + num2;
-}
-function subtract(num1, num2) {
-    return num1 - num2;
-}
-function multiply(num1, num2) {
-    return num1 * num2;
-}
-function divide(num1, num2) {
-    return num1 / num2;
 }
 
 // OPERATE
@@ -156,20 +228,201 @@ function operate(num1, num2, operation) {
     // operation = "" + operation;
     switch (operation.toString()) {
         case "+":
-            return add(num1, num2);
+            return ADD(num1, num2);
             break;
         case "-":
-            return subtract(num1, num2);
+            return SUBTRACT(num1, num2);
             break;
         case "×":
-            return multiply(num1, num2);
+            return MULTIPLY(num1, num2);
             break;
         case "÷":
-            return divide(num1, num2);
+            if (num2 === 0) {
+                alert("Welp! You broke the internet! Don't do it again!");
+                clearAllData();
+                return 0;
+            } else {
+                return DIVIDE(num1, num2);
+            }
             break;
     }
 }
 
 function clearAllData() {
-    // do stuff
+    operator = null;
+    firstOperand = 0;
+    secondOperand = 0;
+    userInputDisplay = "0";
+    results = null;
+    resultsDisplay = "0";
+    doesDecimalExist = false;
+    userInput.textContent = resultsDisplay;
+    resultsContainer.textContent = resultsDisplay;
+
+    console.log(`data cleared:
+operator: ${operator}
+firstOperand: ${firstOperand}
+secondOperand: ${secondOperand}
+userInputDisplay: ${userInputDisplay}
+results: ${results}
+resultsDisplay: ${resultsDisplay}
+    
+    `);
+}
+
+function backSpace() {
+    if (operator === null) {
+        // set the firstOperand variable to its negative
+        let tempOperand = firstOperand.toString();
+        console.log("Before: " + tempOperand, tempOperand.length);
+
+        if (
+            tempOperand.length === 1 ||
+            (tempOperand.length === 2 && tempOperand < 0)
+        ) {
+            tempOperand = 0;
+            doesDecimalExist = false;
+            console.log("After: " + tempOperand, tempOperand.length);
+        } else {
+            // there isn't a decimal
+            if (!doesDecimalExist) {
+                tempOperand = parseInt(
+                    tempOperand.slice(0, tempOperand.length - 1)
+                );
+                console.log(
+                    "Int Parse - After: " + tempOperand,
+                    tempOperand.toString(),
+                    tempOperand.toString().length
+                );
+                // there's a decimal
+            } else {
+                tempOperand = parseFloat(
+                    tempOperand.slice(0, tempOperand.length - 1)
+                );
+                if (!tempOperand.toString().includes(".")) {
+                    doesDecimalExist = false;
+                    console.log("is no longer floating");
+                }
+                console.log(
+                    "Float Parse - After: " + tempOperand,
+                    tempOperand.toString(),
+                    tempOperand.toString().length
+                );
+            }
+        }
+
+        firstOperand = tempOperand;
+
+        // update userInput Display variable
+        if (firstOperand === 0) {
+            userInputDisplay = "0";
+        } else {
+            userInputDisplay = `${firstOperand}`;
+        }
+
+        // update userInput Display
+        userInput.textContent = userInputDisplay;
+    } else if (operator !== null) {
+        // set the firstOperand variable to its negative
+        let tempOperand = secondOperand.toString();
+
+        if (
+            tempOperand.length === 1 ||
+            (tempOperand.length === 2 && tempOperand < 0)
+        ) {
+            tempOperand = 0;
+            doesDecimalExist = false;
+        } else {
+            // there isn't a decimal
+            if (!doesDecimalExist) {
+                tempOperand = parseInt(
+                    tempOperand.slice(0, tempOperand.length - 1)
+                );
+                console.log(
+                    "Int Parse - After: " + tempOperand,
+                    tempOperand.toString(),
+                    tempOperand.toString().length
+                );
+                // there's a decimal
+            } else {
+                tempOperand = parseFloat(
+                    tempOperand.slice(0, tempOperand.length - 1)
+                );
+                if (!tempOperand.toString().includes(".")) {
+                    doesDecimalExist = false;
+                    console.log("is no longer floating");
+                }
+                console.log(
+                    "Float Parse - After: " + tempOperand,
+                    tempOperand.toString(),
+                    tempOperand.toString().length
+                );
+            }
+        }
+
+        secondOperand = tempOperand;
+
+        userInputDisplay = `${firstOperand} ${operator} ${secondOperand}`;
+
+        // update userInput Display
+        userInput.textContent = userInputDisplay;
+    }
+}
+
+function invert() {
+    if (operator === null) {
+        // set the firstOperand variable to its negative
+        firstOperand = firstOperand * -1;
+
+        // update userInput Display variable
+        if (firstOperand === 0) {
+            return;
+        } else {
+            userInputDisplay = `${firstOperand}`;
+        }
+
+        // update userInput Display
+        userInput.textContent = userInputDisplay;
+    } else if (operator !== null) {
+        // set the secondOperand variable to its negative
+        secondOperand = secondOperand * -1;
+
+        // update userInput Display variable
+        if (secondOperand === 0) {
+            return;
+        } else {
+            userInputDisplay = `${firstOperand} ${operator} ${secondOperand}`;
+        }
+
+        // update userInput Display
+        userInput.textContent = userInputDisplay;
+    }
+}
+
+function percentage() {
+    if (operator === null) {
+        firstOperand = firstOperand / 100;
+        userInputDisplay = firstOperand;
+        userInput.textContent = userInputDisplay;
+    } else if (operator !== null) {
+        secondOperand = firstOperand * (secondOperand / 100);
+        userInputDisplay = `${firstOperand} ${operator} ${secondOperand}`;
+        userInput.textContent = userInputDisplay;
+    }
+}
+
+function decimal() {
+    if (operator === null) {
+        if (!doesDecimalExist) {
+            userInputDisplay += ".";
+            userInput.textContent = userInputDisplay;
+            doesDecimalExist = true;
+        }
+    } else if (operator !== null) {
+        if (!doesDecimalExist) {
+            userInputDisplay += ".";
+            // userInputDisplay = `${firstOperand} ${operator} ${secondOperand}`;
+            doesDecimalExist = true;
+        }
+    }
 }

@@ -14,7 +14,7 @@
 <body>
     <main id="calculator">
         <section class="display">
-            <output class="user-input" type="text" id="user-input"></output>
+            <output class="user-input" type="text" id="user-input">0</output>
             <output class="result" type="text" id="result">0</output>
         </section>
         <section class="numPad">
@@ -28,8 +28,8 @@
             </div>
             <div class="buttons">
                 <button data-clear="all" class="clear">AC</button>
-                <button data-clear="backspace" class="backSpaceBtn"><img src="assets/backspace-svgrepo-com.svg" alt=""></button>
-                <button class="functionBtn">%</button>
+                <button data-clear="backspace" class="backSpace"><img src="assets/backspace-svgrepo-com.svg" alt=""></button>
+                <button class="percent">%</button>
                 <button data-op="÷" class="operator">÷</button>
                 <button data-num="7" class="operand">7</button>
                 <button data-num="8" class="operand">8</button>
@@ -44,8 +44,8 @@
                 <button data-num="3" class="operand">3</button>
                 <button data-op="+" class="operator">+</button>
                 <button data-num="0" class="operand">0</button>
-                <button>+/-</button>
-                <button>.</button>
+                <button class="invert">+/-</button>
+                <button class="decimal">.</button>
                 <button class="equalBtn">=</button>
             </div>
         </section>

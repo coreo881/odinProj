@@ -47,6 +47,7 @@ FOOTNOTE 2. There are some checks I need to do before I commit to the display va
 
 FOOTNOTE 3. There are a couple of not-so-edge cases that I need to deal with now.  The first is after the user equates an expression with the equal button and then immediately wants to use that number as the operand of another expression by hitting an operator button.  Right now, because I'm setting operands back to zero without any fallbacks, the first operand will alwyas be zero. The second is when a user tries to press another operator after dialing in their second operand as a shorthand for "equate this expression and then set up the next expression's first operand being the result and the operator being the selected operator." Right now I don't really have a solve for that.
 
+FOOTNOTE 4. So in order to have a "smart" operator button, a button that'll equate AND set us up with the selected operator, I think that I need to be adding a check here to see if an operator was pressed already.
 
 
 Flow
@@ -55,20 +56,24 @@ Flow
  - commit to userinput display variable
  - update userinput display
 - Operator press
- - commit to operator variable
-  - if operator variable is NOT null, do nothing
- - update userinput display variable with operator
- - update userinput display
- - Another operator press (no equal btn)
-  - commit equated value to operand 1
-  - commit to display variable
-  - set operator variable to pressed operator
-  - update display
- - Another operator press (after equal btn)
-  - commit equated value to operand 1
-  - commit to display variable
-  - set operator variable to pressed operator
-  - update display
+    - check to see if operator was pressed
+        - commit equated value to results variable
+        - set operand 1 to results value
+        - set operand 2 to zero
+        - set operator to new operator
+        - update userinput display variable
+        - update results display variable
+        - update userinput display
+        - update results display
+    - check to see if results is not null (equal btn was pressed)
+        - set operand 1 to results value
+        - set operator to new operator
+        - update userinput display variable
+        - update userinput display
+    - else
+        - commit to operator variable
+    - update userinput display variable with operator
+    - update userinput display
 - Number press 
  - commit to operand 2 variable
  - commit to userinput display variable
@@ -92,4 +97,73 @@ Flow
  - update userinput display
  - update resultsDisplay
 
+==The other things
+- Backspace button
+    - If an operator has NOT been selected
+        - if the number is an interger
+            - Change the firstOperand variable into a string
+            - remove one character from the right side of the firstOperand and change it back into a number
+            - update userInput Display variable
+            - update userInput Display
+        - if the number is not an integer
+            - Change the firstOperand variable into a string
+            - remove one character from the right side of the firstOperand and change it back into a number
+            - if the last character is a decimal, set decimal switch to false
+            - update userInput Display variable
+            - update userInput Display
+    - If an operator has been selected
+        - Change the secondOperand variable into a string
+        - remove one character from the right side of the secondOperand and change it back into a number
+        - update userInput Display variable
+        - update userInput Display 
+- Invert button
+    - If an operator has NOT been selected
+        - set the firstOperand variable to its negative
+        - update userInput Display variable
+        - update userInput Display
+    - If an operator has been selected
+        - set the secondOperand variable to its negative
+        - update userInput Display variable
+        - update userInput Display
+- Percentage button
+    - If an operator has NOT been selected
+        - set the firstOperand to itself divided by 100
+        - set userInput display variable to firstOperand
+        - update display
+    - If an operator has been selected    
+        - set secondOperand to the following evaluated equation: firstOperand * (secondOperand / 100)
+        - set userInput display variable to updated string
+        - update display
+- Decimal button
+    - If a decimal DOESN'T exist in the operand/display variable
+        - append a decimal to firstOperand
+        - append a decimal to the display variable
+        - update display
+    - If a decimal DOES exist in the operand/display variable
+        - do nothing
 
+FOOTNOTE 4: Okay. I've made some real progress so far. I got the negative to positive button working. I got the percentage button working which was way easier than I thought it would be. Last, and unfortunately, very much not least, is the decimal button.  It threatening to drive me a little crazy. I've been dreading it a bit only because I knew it would require some really clever thinking around how I code the display....and tbh I thought that would be it. I didn't know I'd have to contend with JS's weird way of handling how it makes things floats, how it determines things are floats, etc etc. It's real weird. Price to pay for using a language that treats typing like a suggestion. Sigh. Back to the drawing board.
+
+I'm going to list the bugs I have. I think I've figured out how to make it work for the first operand, and I beleive I can do the same for the second, but I just need to see the bug list and check them muthafuckas off.
+
+
+=FIXED= 1. Pressing the decimal button then the negative button removes the decimal from the display. The value in the operand variable reamins correct.
+
+Notes: Pressing the buttons in the reverse order does not have the same effect.
+
+
+=FIXED= 2. The backspace button removes all decimal places AND the decimal from the display. It also removes all decimal places within the operand variable, but maintains the state of being a float.
+
+E.G. 3.33 becomes 3 in the display. Clicking on the '9' key will display 39 while the operand variable with hold the value 3.9
+
+These are a good start. Getting to work...
+
+
+FEELING good on this progress. I have a couple more for you—
+
+3. If the number is a decimal, has only one number after the decimal, and backspace is pressed, both the decimal point and the number is deleted. What should happen is a removal of the number, and another press should remove the decimal.
+
+=FIXED= 4. If I backspace numbers back to zero/no display, pressing the decimal button again on its own no longer shows the 0.
+
+
+5.  
