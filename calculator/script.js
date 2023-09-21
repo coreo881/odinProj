@@ -172,8 +172,38 @@ function initButtons(buttons) {
                 typof ${typeof operator}`
                 );
 
+                let decimalPlaces = 0;
+
+                if (
+                    firstOperand.toString().length >
+                        secondOperand.toString().length ||
+                    firstOperand.toString().length ==
+                        secondOperand.toString().length
+                ) {
+                    console.log(
+                        firstOperand.toString().length,
+                        secondOperand.toString().length
+                    );
+                    decimalPlaces = countDecimals(firstOperand);
+                } else if (
+                    secondOperand.toString().length >
+                    firstOperand.toString().length
+                ) {
+                    console.log(
+                        secondOperand.toString().length,
+                        firstOperand.toString().length
+                    );
+                    decimalPlaces = countDecimals(secondOperand);
+                }
+
+                console.log(decimalPlaces);
+
                 // equate value
-                results = operate(firstOperand, secondOperand, operator);
+                results = operate(
+                    firstOperand,
+                    secondOperand,
+                    operator
+                ).toFixed(decimalPlaces);
 
                 // FOOTNOTE 3
                 // set first operand to 0
@@ -426,3 +456,15 @@ function decimal() {
         }
     }
 }
+
+let countDecimals = function (value) {
+    if (Math.floor(value) === value) return 0;
+
+    var str = value.toString();
+    if (str.indexOf(".") !== -1 && str.indexOf("-") !== -1) {
+        return str.split("-")[1] || 0;
+    } else if (str.indexOf(".") !== -1) {
+        return str.split(".")[1].length || 0;
+    }
+    return str.split("-")[1] || 0;
+};

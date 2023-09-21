@@ -88,7 +88,7 @@ body {
     place-self: center;
     background-color: #ddd;
     padding: 20px;
-    /* min-width: 500px; */
+    max-width: 455px;
     place-items: center;
     box-shadow: 10px 10px 15px #000;
 }
@@ -99,6 +99,7 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 20px;
+    overflow-y: scroll;
 }
 
 .display output {
@@ -113,6 +114,8 @@ body {
 .display output#result {
     height: 80%;
     font-size: 5rem;
+    overflow-y: visible;
+    /* overflow: auto; */
 }
 
 .numPad .toggles {
