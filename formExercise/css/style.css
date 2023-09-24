@@ -141,3 +141,37 @@ main {
     background-color: #596d48;
     color: white;
 }
+
+@media (max-width: 1024px) {
+    .imageSection {
+        grid-column: 1/3;
+    }
+
+    .imageSection__titleBox {
+        position: absolute;
+        top: 0%;
+    }
+
+    .formSection {
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        width: clamp(300px, 80vw, 650px);
+        max-width: 700px;
+    }
+
+    .formSection__summary {
+        padding: 0 2rem;
+    }
+
+    .formSection__inputAreaInner p {
+        color: black;
+    }
+
+    .formSection__submitArea a {
+        color: darkorange
+    }
+}
