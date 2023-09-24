@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>The Odin Project - Hades Form</title>
+</head>
+
+<body>
+    <main>
+        <section class="imageSection">
+            <!-- <img src="assets/Hades_II_Asset_Pack/Hades II Key Art.png" alt=""> -->
+            <div class="imageSection__bgImage"></div>
+            <div class="imageSection__titleBox">
+                <h1>Hades II</h1>
+            </div>
+            <div class="imageSection__credit">
+                <p>Image courtesy of <a href="https://www.supergiantgames.com/games/hades-ii/" target="_blank">Super Giant Games</a></p>
+            </div>
+        </section>
+        <section class="formSection">
+            <div class="formSection__summary">
+                <p>This is not the real sign up form! But don't let that stop you! "Sign up" here to gain access to the Hades II <em>earliest</em> access release. <br><br> Do eet!</p>
+            </div>
+            <div class="formSection__formContainer">
+                <form class="formSection__form" action="#">
+                    <section class="formSection__inputArea">
+                        <div class="formSection__inputAreaInner">
+                            <p>Let's do this!</p>
+
+
+                            <div class="formSection__formGroup">
+                                <label for="firstName">First Name</label>
+                                <input aria-required="true" required type="text" name="firstName" id="firstName">
+                            </div>
+
+                            <div class="formSection__formGroup">
+                                <label for="lastName">Last Name</label>
+                                <input aria-required="true" required type="text" name="lastName" id="lastName">
+                            </div>
+
+                            <div class="formSection__formGroup">
+                                <label for="email">Email</label>
+                                <input aria-required="true" required type="email" name="email" id="email">
+                            </div>
+
+                            <div class="formSection__formGroup">
+                                <label for="phone">Phone Number</label>
+                                <input type="text" name="phone" id="phone">
+                            </div>
+
+                            <div class="formSection__formGroup pass">
+                                <label for="password">Password</label>
+                                <input aria-required="true" required minlength="5" type="password" name="password" id="password" placeholder="Set your password">
+                            </div>
+
+                            <div class="formSection__formGroup">
+                                <label for="confirm">Confirm Password</label>
+                                <input aria-required="true" required minlength="5" type="password" name="confirm" id="confirm" placeholder="Confirm your password">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="formSection__submitArea">
+                        <button type="submit">Create Account</button>
+                        <p>Already have an account? <a href="#">Log in</a></p>
+                    </section>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script src="script.js"></script>
+
+</html>
