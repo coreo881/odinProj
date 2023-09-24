@@ -1,0 +1,143 @@
+@font-face {
+    font-family: "Caesar Dressing";
+    src: url("../assets/fonts/caesar-dressing/CaesarDressing-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Rosario";
+    src: url("../assets/fonts/Rosario/Rosario-VariableFont_wght.ttf");
+}
+
+body,
+main {
+    height: 100vh;
+}
+
+p,
+li,
+label,
+button,
+input {
+    font-family: "Rosario";
+}
+
+main {
+    display: grid;
+    grid-template-columns: 30vw 1fr;
+}
+
+.imageSection {
+    position: relative;
+}
+
+.imageSection__bgImage {
+    background-image: url("../assets/Hades_II_Asset_Pack/Hades\ II\ Key\ Art.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.imageSection__titleBox {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    color: white;
+    text-align: center;
+    font-family: "Caesar Dressing";
+    font-size: 2rem;
+}
+
+.imageSection__credit {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.imageSection__credit a {
+    color: darkorange;
+}
+
+.formSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #eee;
+}
+
+.formSection__summary {
+    max-width: 95ch;
+    padding-left: 2rem;
+}
+
+.formSection__summary p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+.formSection__inputArea {
+    background-color: white;
+    padding: 1rem 0;
+}
+
+.formSection__inputAreaInner {
+    padding-left: 2rem;
+    padding-left: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: min(600px, 80%);
+}
+
+.formSection__formGroup.passError::after {
+    content: "*Make sure your passwords match";
+    color: red;
+    margin-top: 5px;
+}
+
+.formSection__inputAreaInner p {
+    margin: 0;
+    font-size: 1.5rem;
+    grid-column: 1 / 3;
+}
+
+.formSection__formGroup label {
+    display: block;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    color: #444;
+}
+
+.formSection__formGroup input {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.formSection__formGroup input:focus-visible {
+    box-shadow: 1px 1px 6px #000;
+    outline: 1px solid blue;
+}
+
+.formSection__formGroup input.error {
+    outline: 1px solid red;
+}
+
+.formSection__submitArea {
+    padding-left: 2rem;
+    margin-top: 1rem;
+}
+
+.formSection__submitArea button[type="submit"] {
+    padding: 0.5rem 2rem;
+    border: unset;
+    border-radius: 7px;
+    background-color: #596d48;
+    color: white;
+}
