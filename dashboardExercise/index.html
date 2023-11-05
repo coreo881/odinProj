@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Odin Project - Dashboard Exercise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Josefin+Slab:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <section class="logoContainer">
+            <img class="logoContainer__logo" src="assets/chLogoText.png" alt="">
+            <h2 class="logoContainer__title">Dashboard</h2>
+        </section>
+        <section class="toolContainer">
+            <ul class="mainTools">
+                <li class="mainTools__item">
+                    <img class="mainTools__icon" src="assets/home-circle-outline.svg" alt="icon">
+                    <p class="mainTools__text">Home</p>
+                </li>
+                <li class="mainTools__item">
+                    <img class="mainTools__icon" src="assets/account-circle-outline.svg" alt="icon">
+                    <p class="mainTools__text">Profile</p>
+                </li>
+                <li class="mainTools__item">
+                    <img class="mainTools__icon" src="assets/message-text-outline.svg" alt="icon">
+                    <p class="mainTools__text">Messages</p>
+                </li>
+                <li class="mainTools__item">
+                    <img class="mainTools__icon" src="assets/history.svg" alt="icon">
+                    <p class="mainTools__text">History</p>
+                </li>
+                <li class="mainTools__item">
+                    <img class="mainTools__icon" src="assets/checkbox-marked-circle-outline.svg" alt="icon">
+                    <p class="mainTools__text">Tasks</p>
+                </li>
+                <li class="mainTools__item">
+                    <img class="mainTools__icon" src="assets/account-group.svg" alt="icon">
+                    <p class="mainTools__text">Communities</p>
+                </li>
+            </ul>
+            <ul class="systemTools">
+                <li class="systemTools__item">
+                    <img class="systemTools__icon" src="assets/cog.svg" alt="icon">
+                    <p class="systemTools__text">Settings</p>
+                </li>
+                <li class="systemTools__item">
+                    <img class="systemTools__icon" src="assets/help-circle.svg" alt="icon">
+                    <p class="systemTools__text">Support</p>
+                </li>
+                <li class="systemTools__item">
+                    <img class="systemTools__icon" src="assets/shield-account.svg" alt="icon">
+                    <p class="systemTools__text">Privacy</p>
+                </li>
+            </ul>
+        </section>
+    </nav>
+    <main class="main">
+        <header class="header">
+            <div class="header__topRow">
+                <div class="searchBar">
+                    <img src="assets/magnify.svg" alt="" class="searchBar__icon">
+                    <input type="text" class="searchBar__input" placeholder="Search...">
+                </div>
+                <div class="header__topRow__profileData">
+                    <img class="profileData__notificationIcon" src="assets/bell-outline.svg" alt="">
+                    <img class="profileData__profilePic profileData__profilePic-sm" src="assets/20220906_coreyHeadshot_1x1.jpeg" alt="">
+                    <p class="profileData__name">Corey Holmes</p>
+                </div>
+            </div>
+            <div class="header__botRow">
+                <div class="header__botRow__profileData">
+                    <img class="profileData__profilePic profileData__profilePic-lg" src="assets/20220906_coreyHeadshot_1x1.jpeg" alt="">
+                    <h1 class="profileData__title">Corey's Odin Projects</h1>
+                </div>
+                <div class="projectButtons">
+                    <div class="projectButtons__item">New</div>
+                    <div class="projectButtons__item">Upload</div>
+                    <div class="projectButtons__item">Share</div>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <section class="projects">
+                <h2 class="projects__heading">My Projects</h2>
+                <div class="projectCards">
+                    <article class="projectCards__item">
+                        <h3 class="projectCards__item__title">Super Cool Project</h3>
+                        <p class="projectCards__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus ducimus dolorum possimus</p>
+                        <div class="projectCards__item__iconContainer">
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/link.svg" alt="'View project' icon"></a>
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/github.svg" alt="'View github link' icon"></a>
+                        </div>
+                    </article>
+                    <article class="projectCards__item">
+                        <h3 class="projectCards__item__title">Super Cool Project</h3>
+                        <p class="projectCards__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus ducimus dolorum possimus</p>
+                        <div class="projectCards__item__iconContainer">
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/link.svg" alt="'View project' icon"></a>
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/github.svg" alt="'View github link' icon"></a>
+                        </div>
+                    </article>
+                    <article class="projectCards__item">
+                        <h3 class="projectCards__item__title">Super Cool Project</h3>
+                        <p class="projectCards__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus ducimus dolorum possimus</p>
+                        <div class="projectCards__item__iconContainer">
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/link.svg" alt="'View project' icon"></a>
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/github.svg" alt="'View github link' icon"></a>
+                        </div>
+                    </article>
+                    <article class="projectCards__item">
+                        <h3 class="projectCards__item__title">Super Cool Project</h3>
+                        <p class="projectCards__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus ducimus dolorum possimus</p>
+                        <div class="projectCards__item__iconContainer">
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/link.svg" alt="'View project' icon"></a>
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/github.svg" alt="'View github link' icon"></a>
+                        </div>
+                    </article>
+                    <article class="projectCards__item">
+                        <h3 class="projectCards__item__title">Super Cool Project</h3>
+                        <p class="projectCards__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus ducimus dolorum possimus</p>
+                        <div class="projectCards__item__iconContainer">
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/link.svg" alt="'View project' icon"></a>
+                            <a class="projectCards__item__iconContainer__icon" href="#"><img src="assets/github.svg" alt="'View github link' icon"></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <aside class="sidebar">
+                <section class="sidebar__section">
+                    <h2 class="sidebar__section__heading">JS Exercises</h2>
+                    <div class="sidebar__section__container">
+                        <div class="sidebar__section__item">
+                            <h4 class="sidebar__section__item__title"><a href="#">Site maintenance</a></h4>
+                            <p class="sidebar__section__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam ut facere error pariatur.</p>
+                        </div>
+                        <div class="sidebar__section__item">
+                            <h4 class="sidebar__section__item__title"><a href="#">Site maintenance</a></h4>
+                            <p class="sidebar__section__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam ut facere error pariatur.</p>
+                        </div>
+                        <div class="sidebar__section__item">
+                            <h4 class="sidebar__section__item__title"><a href="#">Site maintenance</a></h4>
+                            <p class="sidebar__section__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam ut facere error pariatur.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="sidebar__section">
+                    <h2 class="sidebar__section__heading">CSS Exercises</h2>
+                    <div class="sidebar__section__container">
+                        <div class="sidebar__section__item">
+                            <h4 class="sidebar__section__item__title"><a href="#">Site maintenance</a></h4>
+                            <p class="sidebar__section__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam ut facere error pariatur.</p>
+                        </div>
+                        <div class="sidebar__section__item">
+                            <h4 class="sidebar__section__item__title"><a href="#">Site maintenance</a></h4>
+                            <p class="sidebar__section__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam ut facere error pariatur.</p>
+                        </div>
+                        <div class="sidebar__section__item">
+                            <h4 class="sidebar__section__item__title"><a href="#">Site maintenance</a></h4>
+                            <p class="sidebar__section__item__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam ut facere error pariatur.</p>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </section>
+    </main>
+</body>
+
+</html>
