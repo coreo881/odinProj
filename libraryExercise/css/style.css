@@ -1,0 +1,237 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+label {
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+}
+
+p,
+li,
+span,
+input {
+    font-family: 'Josefin Slab', serif;
+    margin: 0;
+}
+
+header {
+    background-color: beige;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    background-color: beige;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+}
+
+main {
+    padding-bottom: 80px;
+}
+
+#libraryContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 300px));
+    gap: 1rem;
+    padding: 0 32px;
+    justify-content: center;
+}
+
+.book {
+    padding: 1rem;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 5px;
+    display: grid;
+}
+
+.book.read {
+    background-color: burlywood;
+}
+
+.detail {
+    margin-bottom: 30px;
+}
+
+.label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, purple, transparent 80%) 1;
+    display: block;
+}
+
+.content {
+    margin-top: 15px;
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.5rem;
+}
+
+#addBook {
+    position: sticky;
+    top: 0vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    margin-bottom: 25px;
+}
+
+.btn {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2rem;
+    line-height: 80px;
+}
+
+.btn__small {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+    line-height: 2;
+    min-width: 30%;
+}
+
+.btn__removeBookBtn {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3rem;
+    line-height: 2;
+    justify-self: center;
+    align-self: center;
+    display: block;
+    width: 95%;
+    background-color: orangered;
+    grid-row: span 1;
+    height: 50px;
+}
+
+.btn__newBook {
+    width: 100%;
+    height: 80px;
+}
+
+.modal::backdrop {
+    transition: background .5s ease;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__heading {
+    margin-bottom: 15px;
+}
+
+#newBookForm {
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    gap: 25px;
+}
+
+.form__section-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__section-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.form__section-radioContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.centerText {
+    text-align: center;
+}
+
+/* =========== */
+/* SLIDER CSS */
+/* =========== */
+
+.switchContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: flex-end;
+}
+
+.switch {
+    position: relative;
+    /* display: flex; */
+    width: 60px;
+    height: 25px;
+    /* background: blueviolet; */
+    /* border-radius: 30px; */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 26px;
+    left: 4px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 34px;
+}

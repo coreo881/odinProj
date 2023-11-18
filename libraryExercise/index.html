@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Josefin+Slab:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
+    <title>Library Exercise</title>
+</head>
+
+<body>
+    <header>
+        <h1>Corey's Library</h1>
+    </header>
+    <main>
+        <section id="addBook">
+            <button class="btn btn__newBook" type="button" onclick="openAddBookModal(addBookModal)">Add Book</button>
+        </section>
+        <section id="libraryContainer">
+            <article class="book">
+                <div class="title">
+                    <span>Title</span>
+                    <h2>Book Title</h2>
+                </div>
+                <div class="author">
+                    <span>Author</span>
+                    <p>Author</p>
+                </div>
+                <div class="page-count">
+                    <span>Page Count</span>
+                    <p>293</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Last updated: 11/13/23</p>
+    </footer>
+
+    <dialog id="addBookModal" class="modal">
+        <h1 class="modal__heading">Add a new book</h1>
+        <form method="dialog" id="newBookForm">
+            <div class="form__section-column">
+                <label for="form__bookTitle">Book title</label>
+                <input required autofocus type="text" name="form__bookTitle" id="form__bookTitle" placeholder="Enter book title">
+            </div>
+
+            <div class="form__section-column">
+                <label for="form__author">Author</label>
+                <input required type="text" name="form__author" id="form__author" placeholder="Enter author name">
+            </div>
+
+            <div class="form__section-column">
+                <label for="form__pageCount">Page count</label>
+                <input required type="text" name="form__pageCount" id="form__pageCount" placeholder="Enter page number">
+            </div>
+
+            <div class="form__section-column centerText">
+                <label for="haveIRead">Have you read this book?</label>
+                <div class="form__section-row">
+                    <div>
+                        <input required type="radio" name="haveIRead" id="haveIRead-yes">
+                        <label for="haveIRead-yes">Yes</label>
+                    </div>
+                    <div>
+                        <input required type="radio" name="haveIRead" id="haveIRead-no">
+                        <label for="haveIRead-no">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__section-row">
+                <button class="btn__small btn__addBook" type="submit">Add</button>
+                <button class="btn__small btn__cancelBook" type="submit" formnovalidate>Cancel</button>
+            </div>
+
+        </form>
+    </dialog>
+
+</body>
+
+</html>
